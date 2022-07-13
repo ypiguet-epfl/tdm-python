@@ -12,6 +12,11 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+      - name: Checkout vpl-web
+        uses: actions/checkout@v3
+        with:
+          repository: epfl-mobots/vpl-web
+          path: vpl-web
       - name: Set Up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
@@ -25,9 +30,5 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install dukpy
           python -m pip install pytest
-      - name: clone vpl-web
-        uses: actions/checkout@master
-        with:
-          repository: epfl-mobots/vpl-web
       - name: Run tests
         run: python -m pytest tests/test*
