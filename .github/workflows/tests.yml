@@ -28,6 +28,6 @@ jobs:
       - name: clone vpl-web
         uses: actions/checkout@master
         with:
-          name: epfl-mobots/vpl-web
+          repository: epfl-mobots/vpl-web
       - name: Run tests
         run: python -m pytest tests/test*
