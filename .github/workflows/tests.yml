@@ -25,5 +25,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install dukpy
           python -m pip install pytest
+      - name: clone vpl-web
+        uses: actions/checkout@master
+        with:
+          name: epfl-mobots/vpl-web
       - name: Run tests
         run: python -m pytest tests/test*
